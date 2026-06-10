@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Digital Core — Sua Barbearia no Próximo Nível</title>
+<meta name="description" content="Landing Page de Alta Conversão + Agente IA que atende e agenda automaticamente. Transforme sua barbearia em uma máquina de agendamentos." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600&family=Bebas+Neue&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/x-icon" href="./assets/logo vector.png">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0A0A0A;
+    --graphite: #1A1A1A;
+    --graphite-2: #242424;
+    --gold: #D4AF37;
+    --gold-dim: rgba(212,175,55,0.15);
+    --gold-dim2: rgba(212,175,55,0.08);
+    --white: #F5F5F5;
+    --muted: #888;
+    --border: rgba(212,175,55,0.2);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 20px 5%;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+  }
+  .nav-logo span { color: var(--white); }
+  .nav-cta {
+    background: var(--gold);
+    color: var(--black);
+    border: none;
+    padding: 10px 24px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-decoration: none;
+  }
+  .nav-cta:hover { background: var(--white); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding: 120px 5% 80px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 60%; height: 100%;
+    background: radial-gradient(ellipse at 80% 40%, rgba(212,175,55,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: block; width: 32px; height: 1px;
+    background: var(--gold);
+  }
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.6rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.12;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+  h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: #aaa;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    font-weight: 400;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 16px 36px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: all 0.22s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-primary:hover { background: var(--white); transform: translateY(-2px); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 36px;
+    font-weight: 500;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border: 1px solid rgba(245,245,245,0.25);
+    cursor: pointer;
+    transition: all 0.22s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+  }
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.4rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em; margin-top: 4px; }
+
+  /* hero right: mockup */
+  .hero-visual {
+    display: flex; flex-direction: column; gap: 1rem;
+    position: relative;
+  }
+  .mockup-phone {
+    background: var(--graphite);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.6), 0 0 0 1px rgba(212,175,55,0.08);
+    max-width: 320px;
+    margin: 0 auto;
+    animation: floatUp 4s ease-in-out infinite;
+  }
+  @keyframes floatUp {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .phone-header {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .phone-avatar {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #a07d1a);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; font-weight: 700; color: var(--black);
+  }
+  .phone-name { font-size: 0.85rem; font-weight: 600; }
+  .phone-status { font-size: 0.7rem; color: #4ade80; }
+  .chat-bubble {
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-bottom: 8px;
+    max-width: 85%;
+  }
+  .bubble-in {
+    background: var(--graphite-2);
+    color: var(--white);
+    border-bottom-left-radius: 4px;
+  }
+  .bubble-out {
+    background: linear-gradient(135deg, var(--gold), #b8960e);
+    color: var(--black);
+    font-weight: 500;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+  }
+  .chat-time { font-size: 0.62rem; color: var(--muted); text-align: right; margin-top: 2px; }
+
+  .metrics-card {
+    background: var(--graphite);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    max-width: 320px;
+    margin: 0 auto;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .metric-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    background: var(--gold-dim);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .metric-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; color: var(--gold); line-height: 1;
+  }
+  .metric-desc { font-size: 0.72rem; color: var(--muted); }
+
+  /* ── SECTION BASE ── */
+  section { padding: 100px 5%; }
+  .section-eyebrow {
+    font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+  .section-sub {
+    font-size: 1rem; color: #aaa; max-width: 560px; font-weight: 400;
+  }
+  .text-gold { color: var(--gold); }
+
+  /* ── PROBLEMS ── */
+  .problems { background: var(--graphite); }
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    margin-top: 4rem;
+    border: 1px solid var(--border);
+  }
+  .problem-card {
+    background: var(--black);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .problem-card:hover { background: var(--graphite-2); }
+  .problem-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.3s;
+  }
+  .problem-card:hover::before { height: 100%; }
+  .problem-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+  .problem-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .problem-desc { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── SOLUTION ── */
+  .solution-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    border: 1px solid var(--border);
+  }
+  .solution-card {
+    background: var(--graphite);
+    padding: 2.5rem 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.2s;
+  }
+  .solution-card:hover { background: var(--graphite-2); }
+  .solution-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 5rem; line-height: 1;
+    color: var(--gold-dim);
+    margin-bottom: -1rem;
+    display: block;
+  }
+  .solution-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; }
+  .solution-list { list-style: none; }
+  .solution-list li {
+    font-size: 0.82rem; color: #aaa; padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .solution-list li::before { content: '—'; color: var(--gold); font-size: 0.7rem; }
+
+  /* ── HOW IT WORKS ── */
+  .how { background: var(--graphite); }
+  .steps-wrap {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+    position: relative;
+  }
+  .steps-wrap::after {
+    content: '';
+    position: absolute; top: 30px; left: 16.5%; right: 16.5%;
+    height: 1px; background: var(--border);
+  }
+  .step {
+    text-align: center;
+    padding: 2.5rem 2rem;
+    position: relative;
+  }
+  .step-circle {
+    width: 60px; height: 60px; border-radius: 50%;
+    border: 1px solid var(--gold);
+    background: var(--graphite-2);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem; color: var(--gold);
+    margin: 0 auto 1.5rem;
+    position: relative; z-index: 1;
+  }
+  .step-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; }
+  .step-desc { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── BENEFITS ── */
+  .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    margin-top: 4rem;
+    border: 1px solid var(--border);
+  }
+  .benefit {
+    background: var(--graphite);
+    padding: 2rem 1.5rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .benefit:hover { background: var(--graphite-2); }
+  .benefit-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .benefit-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .benefit-desc { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── AI DEMO ── */
+  .ai-demo {
+    background: var(--graphite);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  .demo-phone {
+    background: var(--black);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 24px;
+    max-width: 360px;
+    box-shadow: 0 60px 120px rgba(0,0,0,0.5);
+    position: relative;
+  }
+  .demo-phone::before {
+    content: '';
+    position: absolute; inset: -1px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.3), transparent 50%);
+    z-index: -1;
+  }
+  .typing-indicator {
+    display: flex; gap: 4px; align-items: center;
+    padding: 10px 14px;
+    background: var(--graphite-2);
+    border-radius: 14px;
+    border-bottom-left-radius: 4px;
+    width: fit-content;
+    margin-bottom: 8px;
+  }
+  .dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--muted);
+    animation: blink 1.2s infinite;
+  }
+  .dot:nth-child(2) { animation-delay: 0.2s; }
+  .dot:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes blink {
+    0%, 80%, 100% { opacity: 0.3; transform: scale(0.8); }
+    40% { opacity: 1; transform: scale(1); }
+  }
+  .demo-copy h2 { margin-bottom: 1rem; }
+  .demo-copy p { color: #aaa; font-size: 0.95rem; margin-bottom: 1.5rem; font-weight: 400; }
+  .demo-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+    margin-top: 2rem;
+  }
+  .tag {
+    background: var(--gold-dim);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    padding: 6px 14px;
+    font-size: 0.72rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── TESTIMONIALS ── */
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    margin-top: 4rem;
+    border: 1px solid var(--border);
+  }
+  .testimonial {
+    background: var(--graphite);
+    padding: 2.5rem 2rem;
+    position: relative;
+  }
+  .testimonial::before {
+    content: '"';
+    font-family: 'Playfair Display', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.25;
+    position: absolute;
+    top: 10px; left: 20px;
+    line-height: 1;
+  }
+  .testimonial-text {
+    font-size: 0.9rem; color: #ccc; line-height: 1.7;
+    margin-bottom: 1.5rem; position: relative; z-index: 1;
+    padding-top: 1rem;
+  }
+  .testimonial-author { display: flex; align-items: center; gap: 12px; }
+  .author-avatar {
+    width: 42px; height: 42px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), #7a5c0a);
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700; color: var(--black); font-size: 0.9rem;
+  }
+  .author-name { font-size: 0.85rem; font-weight: 600; }
+  .author-role { font-size: 0.72rem; color: var(--muted); }
+  .author-result {
+    margin-top: 1rem;
+    background: var(--gold-dim2);
+    border-left: 2px solid var(--gold);
+    padding: 8px 12px;
+    font-size: 0.75rem; color: var(--gold);
+  }
+  .demo-disclaimer {
+    text-align: center; margin-top: 1.5rem;
+    font-size: 0.68rem; color: var(--muted); letter-spacing: 0.05em;
+  }
+
+  /* ── OFFER ── */
+  .offer { background: var(--graphite); }
+  .offer-box {
+    max-width: 780px; margin: 4rem auto 0;
+    border: 1px solid var(--border);
+    background: var(--black);
+    overflow: hidden;
+  }
+  .offer-header {
+    background: linear-gradient(135deg, var(--gold), #b8960e);
+    padding: 24px 36px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .offer-header-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem; letter-spacing: 0.08em;
+    color: var(--black);
+  }
+  .offer-badge {
+    background: var(--black);
+    color: var(--gold);
+    padding: 6px 14px;
+    font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .offer-body { padding: 2.5rem 2.5rem; }
+  .offer-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .offer-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  .check {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--gold);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.65rem; color: var(--black); font-weight: 700;
+    flex-shrink: 0; margin-top: 2px;
+  }
+  .offer-item-text { font-size: 0.88rem; font-weight: 500; }
+  .offer-item-sub { font-size: 0.73rem; color: var(--muted); }
+  .offer-cta-row {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    margin-top: 2rem;
+  }
+
+  /* ── FINAL CTA ── */
+  .final-cta {
+    text-align: center;
+    padding: 120px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+  .final-cta::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, rgba(212,175,55,0.08) 0%, transparent 65%);
+    pointer-events: none;
+  }
+  .final-cta h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .final-cta p { color: #aaa; font-size: 1rem; margin-bottom: 2.5rem; position: relative; }
+  .final-cta .btn-primary { font-size: 1rem; padding: 18px 48px; position: relative; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--graphite);
+    border-top: 1px solid var(--border);
+    padding: 40px 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem; letter-spacing: 0.12em; color: var(--gold);
+  }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+
+  /* ── DIVIDER ── */
+  .divider {
+    width: 100%; height: 1px;
+    background: linear-gradient(to right, transparent, var(--border), transparent);
+    margin: 0;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1024px) {
+    .solution-grid { grid-template-columns: 1fr 1fr; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; padding-top: 100px; gap: 3rem; }
+    .hero-visual { display: none; }
+    .steps-wrap { grid-template-columns: 1fr; }
+    .steps-wrap::after { display: none; }
+    .solution-grid { grid-template-columns: 1fr; }
+    .ai-demo { grid-template-columns: 1fr; }
+    .offer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    nav { padding: 16px 5%; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0; transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Digital<span>Core</span></div>
+  <a href="#cta-final" class="nav-cta">Solicitar Demo</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Automação de alta performance</p>
+    <h1>Transforme Sua Barbearia em uma <em>Máquina de Agendamentos</em> com IA</h1>
+    <p class="hero-sub">Landing Page de Alta Conversão + Agente IA que responde clientes 24 horas por dia e agenda automaticamente no WhatsApp.</p>
+    <div class="hero-actions">
+      <a href="#cta-final" class="btn-primary">Solicitar Demonstração</a>
+      <a href="#como-funciona" class="btn-ghost">Ver Como Funciona</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Mais agendamentos</div>
+      </div>
+      <div>
+        <div class="stat-num">24h</div>
+        <div class="stat-label">Atendimento ativo</div>
+      </div>
+      <div>
+        <div class="stat-num">0</div>
+        <div class="stat-label">Mensagens sem resposta</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-visual">
+    <div class="mockup-phone">
+      <div class="phone-header">
+        <div class="phone-avatar">IA</div>
+        <div>
+          <div class="phone-name">Assistente Digital</div>
+          <div class="phone-status">● Online agora</div>
+        </div>
+      </div>
+      <div class="chat-bubble bubble-in">Tem horário hoje?</div>
+      <div class="chat-bubble bubble-out">Sim! Temos às 14h, 16h e 18h. Qual prefere? 👇</div>
+      <div class="chat-bubble bubble-in">16h tá ótimo</div>
+      <div class="chat-bubble bubble-out">Perfeito, seu horário foi reservado para hoje às 16h ✅ Posso confirmar seu nome?</div>
+      <div class="chat-bubble bubble-in">João Silva</div>
+      <div class="chat-bubble bubble-out">Anotado, João! Te esperamos às 16h. Até logo! 💈</div>
+      <div class="chat-time">Hoje · Automático via IA</div>
+    </div>
+    <div class="metrics-card">
+      <div class="metric-icon">📅</div>
+      <div>
+        <div class="metric-val">+47</div>
+        <div class="metric-desc">Agendamentos este mês</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEMS -->
+<section class="problems reveal">
+  <p class="section-eyebrow">O problema real</p>
+  <h2 class="section-title">Sua Barbearia Está Perdendo Clientes <span class="text-gold">Todos os Dias</span></h2>
+  <p class="section-sub">Enquanto você atende na cadeira, o WhatsApp acumula mensagens sem resposta. E cada mensagem ignorada é um cliente que foi para a concorrência.</p>
+
+  <div class="problems-grid">
+    <div class="problem-card">
+      <div class="problem-icon">📵</div>
+      <div class="problem-title">Mensagens sem resposta</div>
+      <div class="problem-desc">Clientes mandam mensagem e não recebem retorno. Silêncio equivale a rejeição — eles marcam em outro lugar.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">⏱️</div>
+      <div class="problem-title">Respostas com atraso</div>
+      <div class="problem-desc">Horas depois já é tarde. O cliente perdeu a paciência e encontrou uma barbearia que respondeu na hora.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🕳️</div>
+      <div class="problem-title">Horários vagos na agenda</div>
+      <div class="problem-desc">Sem organização centralizada, horários ficam ociosos. Receita que poderia estar no bolso vai embora todos os dias.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">📱</div>
+      <div class="problem-title">Dependência do Instagram</div>
+      <div class="problem-desc">Algoritmo muda, alcance cai. Sem uma base digital própria, sua barbearia fica refém de plataformas que não controlam você.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">🏚️</div>
+      <div class="problem-title">Sem presença digital profissional</div>
+      <div class="problem-desc">O cliente pesquisa antes de ir. Se não encontra nada profissional, vai para o concorrente que parece mais estabelecido.</div>
+    </div>
+    <div class="problem-card">
+      <div class="problem-icon">😤</div>
+      <div class="problem-title">Trabalho manual que não escala</div>
+      <div class="problem-desc">Responder mensagem, confirmar horário, lembrar cliente — tudo manual. Você gerencia a agenda em vez de cortar cabelo.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOLUTION -->
+<section id="solucao" class="reveal">
+  <p class="section-eyebrow">A solução completa</p>
+  <h2 class="section-title">Conheça o <span class="text-gold">Digital Core</span></h2>
+  <p class="section-sub">Um sistema completo que coloca sua barbearia em outro patamar — automação, presença profissional e crescimento de agendamentos, tudo integrado.</p>
+
+  <div class="solution-grid">
+    <div class="solution-card">
+      <span class="solution-num">01</span>
+      <div class="solution-title">Landing Page Premium</div>
+      <ul class="solution-list">
+        <li>Design profissional e exclusivo</li>
+        <li>Conversão otimizada</li>
+        <li>Captação de leads integrada</li>
+        <li>Responsiva para mobile</li>
+        <li>SEO e performance</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <span class="solution-num">02</span>
+      <div class="solution-title">Agente IA de Atendimento</div>
+      <ul class="solution-list">
+        <li>Disponível 24 horas por dia</li>
+        <li>Respostas instantâneas</li>
+        <li>Qualificação de clientes</li>
+        <li>Tom personalizado da barbearia</li>
+        <li>Integração WhatsApp</li>
+      </ul>
+    </div>
+    <div class="solution-card">
+      <span class="solution-num">03</span>
+      <div class="solution-title">Agendamento Automatizado</div>
+      <ul class="solution-list">
+        <li>Agenda organizada e visível</li>
+        <li>Confirmações automáticas</li>
+        <li>Redução de faltas</li>
+        <li>Mais horários preenchidos</li>
+        <li>Relatórios de desempenho</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW IT WORKS -->
+<section id="como-funciona" class="how reveal">
+  <p class="section-eyebrow">O processo</p>
+  <h2 class="section-title">Como Funciona na <span class="text-gold">Prática</span></h2>
+  <p class="section-sub">Três etapas simples. Do primeiro contato do cliente até o agendamento confirmado — sem você precisar tocar no celular.</p>
+
+  <div class="steps-wrap">
+    <div class="step">
+      <div class="step-circle">1</div>
+      <div class="step-title">Cliente acessa a página</div>
+      <div class="step-desc">Ele chega pelo Google, Instagram ou indicação. Encontra uma presença profissional que transmite confiança imediata.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle">2</div>
+      <div class="step-title">IA inicia o atendimento</div>
+      <div class="step-desc">No WhatsApp, a IA responde na hora. Apresenta os serviços, identifica o que o cliente precisa e pergunta a preferência de horário.</div>
+    </div>
+    <div class="step">
+      <div class="step-circle">3</div>
+      <div class="step-title">Agendamento confirmado</div>
+      <div class="step-desc">O horário é reservado automaticamente, confirmação enviada ao cliente e você recebe a notificação. Sem intervenção manual.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BENEFITS -->
+<section class="reveal">
+  <p class="section-eyebrow">Por que funciona</p>
+  <h2 class="section-title">O Que Muda na Sua <span class="text-gold">Barbearia</span></h2>
+
+  <div class="benefits-grid">
+    <div class="benefit">
+      <div class="benefit-icon">📈</div>
+      <div class="benefit-title">Mais agendamentos</div>
+      <div class="benefit-desc">Nenhum cliente fica sem resposta. Cada interesse vira uma reserva.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🏆</div>
+      <div class="benefit-title">Mais profissionalismo</div>
+      <div class="benefit-desc">Sua barbearia passa a impressão de um negócio sólido e estruturado.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">⚡</div>
+      <div class="benefit-title">Atendimento instantâneo</div>
+      <div class="benefit-desc">Resposta em segundos, 24 horas. Inclusive quando você está trabalhando.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🔓</div>
+      <div class="benefit-title">Menos trabalho manual</div>
+      <div class="benefit-desc">Você corta cabelo. O sistema cuida do resto.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">😍</div>
+      <div class="benefit-title">Melhor experiência</div>
+      <div class="benefit-desc">Cliente atendido bem volta sempre. E ainda indica para outros.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🔄</div>
+      <div class="benefit-title">Crescimento previsível</div>
+      <div class="benefit-desc">Sistema rodando, agenda cheia. Você sabe o que esperar todo mês.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🌙</div>
+      <div class="benefit-title">Disponível 24 horas</div>
+      <div class="benefit-desc">Agendamentos acontecem mesmo à noite e nos fins de semana.</div>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">🎯</div>
+      <div class="benefit-title">Captação de leads</div>
+      <div class="benefit-desc">Construa sua base de clientes e não dependa mais do Instagram.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- AI DEMO -->
+<section class="ai-demo reveal">
+  <div class="demo-phone">
+    <div class="phone-header">
+      <div class="phone-avatar">IA</div>
+      <div>
+        <div class="phone-name">Barbearia Vitor Hugo</div>
+        <div class="phone-status">● Respondendo automaticamente</div>
+      </div>
+    </div>
+    <div class="chat-bubble bubble-in">Tem horário hoje?</div>
+    <div class="chat-bubble bubble-out">Olá! Sim, temos disponibilidade hoje às 14h, 16h e 18h 💈 Qual horário prefere?</div>
+    <div class="chat-bubble bubble-in">16h.</div>
+    <div class="chat-bubble bubble-out">Perfeito! Seu horário foi reservado para hoje às 16h ✅ Posso confirmar seu nome para a agenda?</div>
+    <div class="chat-bubble bubble-in">Rafael.</div>
+    <div class="chat-bubble bubble-out">Obrigado, Rafael! Te esperamos às 16h. Qualquer dúvida, é só chamar. Até logo! 🔥</div>
+    <div class="typing-indicator">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+    <div class="chat-time">Atendimento 100% automático por IA</div>
+  </div>
+  <div class="demo-copy">
+    <p class="section-eyebrow">IA em ação</p>
+    <h2 class="section-title">Seu Agente Trabalha Enquanto Você <span class="text-gold">Atende na Cadeira</span></h2>
+    <p>A IA conversa como um atendente treinado. Entende o contexto, responde com personalidade, agenda e confirma — tudo no WhatsApp, sem intervenção humana.</p>
+    <p>Não é um bot genérico. É um agente configurado com a voz, os serviços e os horários da sua barbearia.</p>
+    <div class="demo-tags">
+      <span class="tag">Respostas instantâneas</span>
+      <span class="tag">Tom personalizado</span>
+      <span class="tag">Agenda integrada</span>
+      <span class="tag">24/7 ativo</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="reveal">
+  <p class="section-eyebrow">Resultados reais</p>
+  <h2 class="section-title">O Que Dizem os <span class="text-gold">Proprietários</span></h2>
+
+  <div class="testimonials-grid">
+    <div class="testimonial">
+      <p class="testimonial-text">Antes eu perdia horário porque estava atendendo e não conseguia responder o WhatsApp. Agora a IA resolve tudo sozinha. Minha agenda nunca esteve tão cheia.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">MF</div>
+        <div>
+          <div class="author-name">Marcos Ferreira</div>
+          <div class="author-role">Barbearia Ferreira Classic</div>
+        </div>
+      </div>
+      <div class="author-result">+38 agendamentos no primeiro mês</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">Minha barbearia ficou com uma cara profissional que eu nunca tive. Os clientes chegam impressionados. A landing page vende antes de eu abrir a boca.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">RB</div>
+        <div>
+          <div class="author-name">Rafael Braga</div>
+          <div class="author-role">Corte & Arte Studio</div>
+        </div>
+      </div>
+      <div class="author-result">3× mais indicações em 45 dias</div>
+    </div>
+    <div class="testimonial">
+      <p class="testimonial-text">Parecia complicado mas foi o contrário. Em poucos dias estava funcionando. Agora durmo tranquilo sabendo que os agendamentos estão sendo feitos automaticamente.</p>
+      <div class="testimonial-author">
+        <div class="author-avatar">LC</div>
+        <div>
+          <div class="author-name">Leonardo Costa</div>
+          <div class="author-role">BarberRoom VIP</div>
+        </div>
+      </div>
+      <div class="author-result">80% menos tempo no celular por dia</div>
+    </div>
+  </div>
+  <p class="demo-disclaimer">⚠ Depoimentos ilustrativos criados para demonstração do serviço. Resultados reais variam.</p>
+</section>
+
+<div class="divider"></div>
+
+<!-- OFFER -->
+<section class="offer reveal">
+  <p class="section-eyebrow">O pacote completo</p>
+  <h2 class="section-title">Tudo que Está <span class="text-gold">Incluso</span> no Digital Core</h2>
+
+  <div class="offer-box">
+    <div class="offer-header">
+      <div class="offer-header-title">Digital Core — Pacote Completo</div>
+      <div class="offer-badge">Solução Completa</div>
+    </div>
+    <div class="offer-body">
+      <div class="offer-grid">
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Landing Page Premium</div>
+            <div class="offer-item-sub">Design exclusivo, responsivo e otimizado</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Integração com WhatsApp</div>
+            <div class="offer-item-sub">Conexão direta com seu número atual</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Agente IA de Atendimento</div>
+            <div class="offer-item-sub">Configurado com a voz da sua barbearia</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Fluxos de Automação</div>
+            <div class="offer-item-sub">Follow-up, confirmação e lembretes</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Agendamento Inteligente</div>
+            <div class="offer-item-sub">Agenda organizada e sem conflitos</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Captação de Leads</div>
+            <div class="offer-item-sub">Base de clientes própria e independente</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Design Responsivo</div>
+            <div class="offer-item-sub">Perfeito em celular, tablet e desktop</div>
+          </div>
+        </div>
+        <div class="offer-item">
+          <div class="check">✓</div>
+          <div>
+            <div class="offer-item-text">Suporte e Onboarding</div>
+            <div class="offer-item-sub">Acompanhamento na implantação</div>
+          </div>
+        </div>
+      </div>
+      <div class="offer-cta-row">
+        <a href="#cta-final" class="btn-primary" style="font-size:0.9rem; padding:16px 40px;">Quero o Digital Core para Minha Barbearia</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FINAL CTA -->
+<section id="cta-final" class="final-cta reveal">
+  <p class="section-eyebrow" style="justify-content:center;display:flex;">Próximo passo</p>
+  <h2>Pronto Para Modernizar <br><span class="text-gold">Sua Barbearia?</span></h2>
+  <p>Veja na prática como sua barbearia pode atender clientes automaticamente e aumentar seus agendamentos a partir desta semana.</p>
+  <a href="https://wa.me/554888017617?text=Ol%C3%A1%2C+gostaria+de+saber+mais+sobre+o+Digital+Core" class="btn-primary" target="_blank">Agendar Demonstração Gratuita</a>
+  <p style="font-size:0.72rem;color:var(--muted);margin-top:1.5rem;margin-bottom:0;">Demonstração sem compromisso. Em 30 minutos você vê tudo funcionando.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Digital<span style="color:var(--white)">Core</span></div>
+  <div class="footer-copy">© 2026 · Desenvolvido por Nevra Systems · Florianópolis, SC</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
